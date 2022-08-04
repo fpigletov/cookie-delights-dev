@@ -1,0 +1,475 @@
+.modal
+    position: fixed
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background-color: rgba(0, 0, 0, 0.8)
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 1000
+    opacity: 0
+    visibility: hidden
+    transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s
+    &.active
+        opacity: 1
+        visibility: visible
+        transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s
+
+    .simplebar-content
+        height: 100%
+
+    &__close
+        position: absolute
+        top: 30px
+        right: 30px
+        cursor: pointer
+        color: $white-color
+        font-size: 40px
+        transition: color 0.3s ease 0s
+        @media (any-hover: hover)
+            &:hover
+                color: $blue-color
+        @media (max-width: $md4)
+            font-size: 30px
+            top: 20px
+            right: 25px
+        @media (max-width: 350px)
+            font-size: 26px
+
+    &__checkout,
+    &__message,
+    &__why,
+    &__blog
+        display: none
+        &.active
+            display: block
+
+    &__login
+        width: 300px
+        min-height: 300px
+        display: none
+        &.active
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+    &__checkout
+        overflow-y: auto
+        overflow-x: hidden
+        height: 500px
+        width: 470px
+        .simplebar-offset
+            padding: 20px 0
+        @media (max-width: $md1)
+            height: 60vh
+        @media (max-width: $md4)
+            height: 70vh
+            width: 90vw
+
+    &__blog
+        height: 75vh
+        width: 700px
+        border-radius: 20px
+        .simplebar-offset
+            padding: 20px 0
+        @media (max-width: $md1)
+            height: 50vh
+        @media (max-width: $md3)
+            width: 90vw
+        @media (max-width: $md4)
+            height: 70vh
+
+    &__why
+        overflow-y: auto
+        overflow-x: hidden
+        width: 600px
+        border-radius: 20px
+        @media (max-width: 600px)
+            width: 90vw
+            height: 80vh
+
+    &__message
+        width: 350px
+        padding: 20px
+        background-color: $white-color
+        color: $blue-color
+        line-height: 130%
+        text-align: center
+        font-weight: 600
+        font-size: 20px
+        border-radius: 20px
+        @media (max-width: $md4)
+            width: 300px
+
+.modal-title
+    color: #0097e6
+    font-size: 28px
+    font-weight: 700
+
+//Login & Checkout
+.form-label
+    min-height: 25px
+    display: block
+    width: 100%
+    margin-bottom: 20px
+
+.form-input
+    color: $gray-color
+    height: 30px
+    width: 100%
+    outline: none
+    padding: 0 10px 5px 10px
+    background: none
+    border-bottom: 2px solid $gray-color
+    transition: border-color 0.3s ease 0s
+    &:focus
+        border-color: $blue-color
+
+.modal-block
+    border-radius: 20px
+    padding: 30px 20px
+    background-color: $white-color
+    @media (max-width: $md4)
+        padding: 20px 10px
+
+    &__title
+        margin-bottom: 25px
+        text-align: center
+
+    &__content
+        width: 100%
+        margin-bottom: 25px
+
+    &__btn
+        height: 40px
+        width: 100px
+
+    &__name
+        color: $gray-color
+        margin: 0 0 5px 10px
+
+    &__subscribe
+        display: block
+
+    &__select
+        width: 100%
+        height: 30px
+        margin-bottom: 20px
+
+//Select
+.choices
+    width: 100%
+    border-bottom: 2px solid $gray-color
+    transition: border-color 0.3s ease
+    &.is-focused
+        border-color: $blue-color
+
+.choices__inner
+    margin: 0
+    padding: 0
+    border: none
+    align-items: flex-end
+    min-height: 30px
+    background-color: $white-color
+
+.choices[data-type*=select-one]::after
+    border: none
+    top: 35%
+    background: url('../resources/icons/icons/caret-down-solid.svg') center/cover no-repeat
+    height: 10px
+    width: 15px
+    transition: transform 0.3s ease, margin-top 0.3s ease
+
+.choices[data-type*=select-one].is-open::after
+    margin-top: -4px
+    transform: rotate(-180deg)
+
+.choices__list--single
+    padding: 5px 5px 0 10px
+
+.choices__list--single .choices__placeholder
+    color: $gray-color
+    font-size: 16px
+    opacity: 1
+
+.choices__item
+    color: $gray-color
+    transition: border-color 0.3s ease
+    &.is-highlighted
+        background-color: $white-color
+        border-bottom: 2px solid $blue-color
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted::after
+    display: none
+
+//Checkbox
+.checkbox-item
+    cursor: pointer
+
+.subscribe-checkout__tag
+
+    &::after
+        top: 1px
+    &::before
+        top: -2px
+
+//Blog
+.blog-modal
+
+    &__body
+        display: flex
+        width: 100%
+        height: 100%
+        background-color: $white-color
+        border-radius: 20px
+        @media (max-width: $md4)
+            flex-direction: column
+
+    &__image
+        flex: 0 1 50%
+        height: 100%
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            border-top-left-radius: 20px
+            border-bottom-left-radius: 20px
+            @media (max-width: $md4)
+                border-bottom-left-radius: 0
+                border-top-right-radius: 20px
+
+    &__content
+        flex: 0 1 50%
+        height: 100%
+        padding: 0 20px
+        overflow-y: auto
+        overflow-x: hidden
+
+    &__title
+        margin-bottom: 5px
+
+    &__date
+        color: $gray-color
+        margin-bottom: 15px
+        font-size: 14px
+        font-weight: 600
+
+    &__descr
+        color: $black-color
+        font-size: 14px
+        line-height: 120%
+        p
+            &:not(:last-child)
+                margin-bottom: 5px
+
+//Why
+.why-modal
+
+    &__body
+        display: flex
+        height: 100%
+        @media (max-width: 600px)
+            flex-direction: column
+
+    &__image
+        flex: 0 1 50%
+        height: 100%
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+        @media (max-width: 600px)
+            height: 70%
+
+    &__content
+        flex: 0 1 50%
+        background-color: $white-color
+        padding: 20px
+
+    &__descr
+        color: $gray-color
+        font-weight: 600
+        line-height: 120%
+        margin-bottom: 15px
+
+    &__item
+        display: flex
+        align-items: center
+        font-size: 14px
+        font-weight: 600
+        color: $black-color
+        &:not(:last-child)
+            margin-bottom: 10px
+        &::before
+            font-size: 18px
+            padding-right: 10px
+
+//Checkout
+.order-checkout
+
+    &__title
+        font-size: 24px
+        font-weight: 600
+        color: $blue-color
+        margin-bottom: 10px
+
+    &__items
+        margin-bottom: 20px
+
+    &__item
+        padding: 10px
+        border: 1px solid $blue-color
+        &:not(:last-child)
+            margin-bottom: 15px
+
+    &__footer
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        // padding-right: 20px
+
+    &__total
+        color: $gray-color
+        font-size: 24px
+        font-weight: 700
+        text-transform: uppercase
+        margin-bottom: 25px
+        span
+            padding-left: 5px
+            font-size: 28px
+            color: $blue-color
+
+    &__btn
+        margin: 0 auto
+        font-size: 14px
+        margin-bottom: 25px
+        &.hold
+            opacity: 0.2
+            cursor: default
+
+    &__empty
+        text-align: center
+        padding: 50px 0 80px 0
+
+.empty-checkout
+    color: $gray-color
+
+    &__text
+        margin-bottom: 10px
+        font-size: 24px
+        font-weight: 600
+
+.empty-link
+    font-size: 20px
+    font-weight: 600
+    a
+        color: $blue-color
+        font-size: 24px
+        font-weight: 700
+        text-decoration: underline
+        transition: text-decoration-color 0.3s ease 0s
+        text-decoration-color: $white-color
+        @media (any-hover: hover)
+            &:hover
+                text-decoration-color: $blue-color
+
+.item-checkout
+    background-color: $white-color
+
+    &__top
+        display: flex
+        justify-content: flex-end
+        margin-bottom: 10px
+
+    &__close
+        color: $gray-color
+        font-weight: 900
+        font-size: 24px
+        transition: color 0.3 ease 0s
+        align-self: flex-start
+        @media (any-hover: hover)
+            &:hover
+                color: $blue-color
+
+    &__wrapper
+        display: flex
+
+    &__content
+        flex: 1 1 auto
+
+    &__body
+        display: flex
+        justify-content: space-between
+        flex: 1 1 auto
+
+    &__image
+        flex: 0 0 100px
+        height: 100%
+        margin-right: 15px
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+
+    &__descr
+        padding-right: 15px
+        @media (max-width: $md4)
+            padding-right: 0
+
+    &__title
+        font-size: 14px
+        line-height: 130%
+        font-weight: 900
+        color: $blue-color
+        transition: all 0.3s ease 0s
+        margin-bottom: 5px
+        span
+            display: block
+
+    &__subtitle
+        font-weight: 300
+        color: $gray-color
+
+    &__footer
+        display: flex
+        align-items: center
+        justify-content: space-between
+        max-width: 180px
+        @media (max-width: $md4)
+            width: 100%
+
+    &__price
+        font-size: 20px
+        font-weight: 900
+        color: $black-color
+
+    &__quantity
+        display: flex
+        justify-content: center
+        align-items: center
+        flex: 0 0 20px
+        height: 20px
+        border: 1px solid $gray-color
+        background-color: $white-color
+        color: $gray-color
+        font-size: 12px
+        font-weight: 600
+
+    &__total
+
+        font-size: 16px
+        font-weight: 300
+        color: $gray-color
+        span
+            display: block
+            font-size: 24px
+            font-weight: 900
+            margin-top: 5px
+        @media (max-width: $md4)
+            display: none
+
+.js-validate-error-label
+    padding-top: 5px

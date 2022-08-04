@@ -1,0 +1,80 @@
+<header class="header">            
+    <div class="header__container container">
+        <div class="header__body">
+            <a href="#" class="header__logo btn-light">
+                <span class="header__logo-icon icon-cookie"></span>
+                <span class="header__logo-name">Cookie <br> Delights</span>
+            </a>
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li class="header__item"><a href="#" class="header__link btn home-link btn-light"><span class="home-link" data-attr="Home">Home</span></a></li>
+                    <li class="header__item"><a href="#" class="header__link btn products-link btn-light"><span class="products-link" data-attr="Products">Products</span></a></li>
+                    <li class="header__item"><a href="#" class="header__link btn services-link btn-light"><span class="services-link" data-attr="Services">Services</span></a></li>
+                    <li class="header__item"><a href="#" class="header__link btn blog-link btn-light"><span class="blog-link" data-attr="Blog">Blog</span></a></li>
+                    <li class="header__item"><a href="#" class="header__link btn contacts-link btn-light"><span class="contacts-link" data-attr="Contacts">Contacts</span></a></li>
+                </ul>
+                <div class="header__icons"></div>
+            </nav>             
+            <div class="header__actions">                             
+                <button type="button" class="header__search-btn icon-search btn-light" aria-label="Open Search Section"></button>
+                <button data-user type="button" class="header__user icon-user btn-light" aria-label="Open login modal"></button>
+                <div class="header__cart cart-header">
+                    <button type="button" class="cart-header__btn icon-cart checkout-link btn-light" aria-label="Open cart"><span>1</span></button>
+                    <div class="cart-header__content cart-content">
+                        <div class="cart-content__body">
+                            <div class="cart-content__wrapper" data-simplebar>
+                                <ul class="cart-content__list"></ul>
+                            </div>                                            
+                            <div class="cart-content__footer">
+                                <div class="cart-content__total">
+                                    Total:<span>0</span>                                    
+                                </div>
+                                <button type="button" class="cart-content__btn btn"><span class="checkout-link" data-attr="Checkout">Checkout</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="header__burger btn-light" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div> 
+            <div class="header__search search-form">
+                <div class="search-form__top">
+                    <h3 class="search-form__title">Search</h3>  
+                    <button class="search-form__close icon-close btn-dark" aria-label="Close Search Section"></button>
+                </div>
+                <form action="#" class="search-form__body">
+                    <button  type="submit" name="search-btn" class="search-form__btn icon-search btn-dark" aria-label="Search"></button>
+                    <label class="search-form__label">
+                        <input type="text" name="Search" autocomplete="off" placeholder="What are you looking for?" class="search-form__input">
+                    </label>
+                </form>                    
+                <div class="search-form__results search-results">
+                    <ul class="search-results__body"></ul>
+                </div>
+                <div class="search-form__categories categories-search">
+                    <h3 class="categories-search__title">Search by Category:</h3>
+                    <ul class="categories-search__list">
+                        <li class="categories-search__item">
+                            <button type="button" class="categories-search__btn btn btn-dark"><span data-attr="Nuts">Nuts</span></button>
+                        </li>
+                        <li class="categories-search__item">
+                            <button type="button" class="categories-search__btn btn btn-dark"><span data-attr="Cookies">Cookies</span></button>
+                        </li>
+                        <li class="categories-search__item">
+                            <button type="button" class="categories-search__btn btn btn-dark"><span data-attr="Chocolate">Chocolate</span></button>
+                        </li>
+                        <li class="categories-search__item">
+                            <button type="button" class="categories-search__btn btn btn-dark"><span data-attr="Raisins">Raisins</span></button>
+                        </li>
+                        <li class="categories-search__item">
+                            <button type="button" class="categories-search__btn btn btn-dark"><span data-attr="Peanuts">Peanuts</span></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>                              
+        </div>        
+    </div>            
+</header>

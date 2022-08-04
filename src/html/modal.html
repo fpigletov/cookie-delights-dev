@@ -1,0 +1,83 @@
+<div class="modal">
+    <button type="button" class="modal__close icon-close btn-light" aria-label="Close Modal Window"></button>
+    <div class="modal__body">
+        <form action="#" method="POST" class="modal__login login-modal modal-block">
+            <h3 class="modal-block__title modal-title">Login</h3> 
+            <div class="modal-block__content">
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Email" placeholder="Email" type="email" autocomplete="off" data-validate-field="email">
+                </label>
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Password" placeholder="Password" type="password" autocomplete="off" data-validate-field="password">
+                </label>                        
+                <label class="modal-block__item checkbox-item">
+                    <input name="Password-checkbox[]" type="checkbox" class="modal-block__checkbox checkbox" value="save">
+                    <span class="modal-block__tag checkbox-tag">Save Password</span>
+                </label>
+            </div>
+            <button type="submit" class="modal-block__btn btn btn-dark"><span data-attr="Enter">Login</span></button>
+        </form>
+        <form action="#" method="POST"  class="modal__checkout checkout-modal modal-block" data-simplebar>
+            <div class="modal-block__title modal-title">Checkout</div>
+            <div class="modal-block__content">
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Fullname" placeholder="Fullname" type="text" autocomplete="off" data-validate-field="fullname">
+                </label>
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Phone" placeholder="Phone" type="tel" autocomplete="off" data-validate-field="phone">
+                </label>
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Email" placeholder="Email" type="email" autocomplete="off" data-validate-field="email">
+                </label>
+                <label class="modal-block__item form-label">                    
+                    <input class="modal-block__input form-input" name="Address" placeholder="Address" type="text" autocomplete="off" data-validate-field="address">
+                </label>  
+                <select name="Payment" class="modal-block__select">                    
+                    <option class="modal-block__option" value="">Choose payment method</option>
+                    <option class="modal-block__option" value="Credit_card">Credit card</option>
+                    <option class="modal-block__option" value="Cash">Cash</option>
+                </select>   
+                <label class="modal-block__subscribe subscribe-checkout checkbox-item">
+                    <input name="Subscribe"  type="checkbox" class="subscribe-checkout__checkbox checkbox" value="Subscribe for news">
+                    <span class="subscribe-checkout__tag checkbox-tag">Subscribe for news</span>
+                </label>
+            </div>
+            <div class="modal-block__order order-checkout"></div>
+        </form>          
+        <div class="modal__blog blog-modal"></div>
+        <div class="modal__why why-modal" data-simplebar>
+            <div class="why-modal__body">
+                <div class="why-modal__image">
+                    <picture>
+                        <source srcset="img/why/why.webp" type="image/webp">
+                        <img loading="lazy" src="img/why/why.jpg" alt="Cookies">
+                    </picture>
+                </div>
+                <div class="why-modal__content">
+                    <p class="why-modal__descr">
+                        Want to get paid in cake and cookies? We thought you might.
+                        When you are part of our *new* rewards program, The First Bite
+                        Club, you’ll get points for buying treats, referring a friend, and
+                        leaving a review. So yes, you can treat yourself to a whole
+                        *lot* of Cookies Delights for free. We’re excited for you.
+                    </p>
+                    <ul class="why-modal__list">
+                        <li class="why-modal__item icon-cookie">
+                            Redeem points for delicious goodies
+                        </li>
+                        <li class="why-modal__item icon-cookie">
+                            Gain early access to limited-edition treats
+                        </li>
+                        <li class="why-modal__item icon-cookie">
+                            Bake at home with Cookies Delights recipes
+                        </li>
+                        <li class="why-modal__item icon-cookie">
+                            Enjoy a birthday treat on us
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="modal__message message-modal"></div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+.services
+
+    &__title
+        text-align: center
+        margin-bottom: 40px
+
+    &__body
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+        gap: 40px
+        @media (max-width: $md3)
+            gap: 20px
+
+    &__item
+        height: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+        padding: 20px 40px
+
+.item-services
+
+    &__icon
+        color: $white-color
+        font-size: 60px
+        margin-bottom: 20px
+
+    &__title
+        min-height: 45px
+        font-size: 22px
+        font-size: 600
+        margin-bottom: 10px
+        @media (max-width: $md4)
+            min-height: 0
+
+    &__descr
+        font-size: 18px
+        line-height: 120%

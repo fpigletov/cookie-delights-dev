@@ -1,0 +1,96 @@
+.footer
+    padding: 80px 0
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/footer/footer.jpg') center/cover no-repeat
+    @media (max-width: $md2)
+        padding: 60px 0
+    @media (max-width: $md4)
+        padding: 30px 0
+
+    &__body
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+        gap: 30px
+        margin-bottom: 70px
+
+    &__credit
+        text-align: center
+        font-size: 20px
+        span
+            color: $blue-color
+
+.footer-column
+
+    &__title
+        font-size: 20px
+        font-weight: 600
+        margin-bottom: 25px
+
+    &__item
+        &:not(&:last-child)
+            margin-bottom: 20px
+
+    &__link
+        color: $white-color
+        transition: color 0.3s ease 0s
+        display: flex
+        align-items: center
+        line-height: 120%
+        &::before
+            padding-right: 10px
+            transition: padding-right 0.3s ease 0s
+        @media (any-hover: hover)
+            &:hover
+                color: $blue-color
+                &::before
+                    padding-right: 20px
+
+    &__form
+        margin-bottom: 25px
+
+    &__label
+        display: block
+        min-height: 35px
+        width: 100%
+        margin-bottom: 10px
+
+    &__input
+        display: block
+        min-height: 35px
+        width: 100%
+        padding: 0 10px
+        border: 2px solid $white-color
+        color: $gray-color
+        font-size: 14px
+        background: none
+        outline: none
+        &:focus
+            border-color: $blue-color
+
+    &__btn
+        width: 120px
+        height: 40px
+
+.footer-social
+    display: flex
+    align-items: center
+
+    &__item
+        height: 45px
+        flex: 0 0 45px
+        display: flex
+        align-items: center
+        justify-content: center
+        background-color: $white-color
+        color: $black-color
+        transition: background-color 0.3s ease 0s
+        @media (any-hover: hover)
+            &:hover
+                background-color: $blue-color
+                .footer-social__link
+                    color: $white-color
+
+    &__link
+        display: block
+        font-size: 20px
+        color: $black-color
+        transition: color 0.3s ease 0s

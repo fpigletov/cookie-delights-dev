@@ -1,0 +1,80 @@
+.blog
+
+    &__title
+        margin-bottom: 25px
+        text-align: center
+
+    &__slider
+        padding: 25px 0
+
+    &__wrapper
+
+    &__item
+        text-align: center
+        padding: 15px
+        transition: transform 0.5s ease, box-shadow 0.5s ease
+        @media (any-hover: hover)
+            &:hover
+                transform: scale(1.05)
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.7)
+                transition: transform 0.5s ease, box-shadow 0.5s ease
+        @media (max-width: $md4)
+            padding: 0
+
+.item-blog
+
+    &__image
+        display: block
+        position: relative
+        height: 250px
+        width: 100%
+        margin-bottom: 10px
+        img
+            height: 100%
+            width: 100%
+            object-fit: cover
+
+    &__icons
+        display: flex
+        align-items: center
+        justify-content: center
+        position: absolute
+        bottom: 10px
+        left: 50%
+        transform: translateX(-50%)
+        background-color: $black-color
+        padding: 10px 5px
+        min-width: 250px
+
+    &__icon
+        display: flex
+        align-items: center
+        font-size: 14px
+        color: $white-color
+        padding: 0 5px
+        &:before
+            display: block
+            padding-right: 5px
+            color: $blue-color
+
+    &__icon.icon-user
+        &::before
+            font-size: 20px
+
+    &__content
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 10px
+
+    &__title
+        font-size: 20px
+        font-weight: 700
+        margin-bottom: 15px
+        min-height: 40px
+        @media (max-width: $md4)
+            min-height: 0
+
+    &__btn
+        @media (max-width: $md4)
+            font-size: 16px

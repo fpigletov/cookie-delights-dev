@@ -1,0 +1,129 @@
+.home
+    height: 100vh
+
+    &__wrapper
+        width: 100%
+        height: 100%
+        position: relative
+        overflow: hidden
+        background: url('../img/home/home-bg.jpg') center/cover no-repeat
+        background-attachment: fixed
+
+    &__text
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        text-align: center
+        z-index: 0
+
+    &__overhead
+        font-size: 60px
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7)
+        margin-bottom: 5px
+        @media (max-height: 700px)
+            font-size: 50px
+        @media (max-width: $md1)
+            font-size: 50px
+        @media (max-width: $md2)
+            font-size: 45px
+        @media (max-width: 760px)
+            font-size: 32px
+        @media (max-width: $md4)
+            font-size: 22px
+
+    &__title
+        color: $blue-color
+        font-size: 120px
+        font-weight: 700
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.7)
+        @media (max-height: 700px)
+            font-size: 100px
+        @media (max-width: $md1)
+            font-size: 100px
+        @media (max-width: $md2)
+            font-size: 80px
+        @media (max-width: 760px)
+            font-size: 48px
+        @media (max-width: $md4)
+            font-size: 32px
+
+    &__image
+        img
+            width: 100%
+            height: 100%
+            // object-fit: cover
+
+    #tree
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 20%
+        width: 100%
+        z-index: 10
+        @media (min-height: 1300px)
+            height: 15%
+        @media (max-width: $md2)
+            height: 15%
+        @media (max-width: 760px)
+            height: 13%
+
+    #mountain
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 40%
+        width: 100%
+        z-index: 5
+        @media (min-height: 1300px)
+            height: 32%
+        @media (max-width: $md2)
+            height: 32%
+        @media (max-width: 760px)
+            height: 26%
+
+    #moon
+        position: absolute
+        top: 20%
+        left: 50%
+        transform: translateX(-50%)
+        width: 30vw
+        z-index: 1
+        @media (min-height: 1300px)
+            width: 35vw
+        @media (max-height: 700px)
+            width: 25vw
+        @media (max-width: $md2)
+            width: 40vw
+            top: 25%
+        // @media (max-width: $md4)
+        //     width: 40vw
+
+    #cloud-left
+        position: absolute
+        top: 35%
+        left: 10%
+        width: 40vw
+        z-index: 2
+        @media (min-height: 1300px)
+            top: 29%
+            left: 4%
+            width: 45vw
+        @media (max-width: $md4)
+            width: 45vw
+
+    #cloud-right
+        position: absolute
+        top: 20%
+        right: 10%
+        width: 40vw
+        z-index: 2
+        @media (min-height: 1300px)
+            top: 21%
+            right: 12%
+            width: 45vw
+        @media (max-width: $md2)
+            top: 28%
+        @media (max-width: $md4)
+            width: 45vw
