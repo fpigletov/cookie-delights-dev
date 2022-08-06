@@ -107,7 +107,10 @@ export function headerActions() {
         
             
         elems.forEach(item => {
-            if (item !== search && item !== wrapper && item !== header && item !== document.querySelector('.header__container') && item !== document.querySelector('.header__body')) {            
+            if (item !== search && item !== wrapper && item !== header &&
+                item !== document.querySelector('.header__container') &&
+                item !== document.querySelector('.header__body')) { 
+                
                 item.inert = true;
             }
         });
@@ -223,12 +226,14 @@ export function headerActions() {
             removeClasses();
         }
 
-        if (!target.closest('.header__menu') && !target.closest('.header__burger') && burger.classList.contains('active')) {
+        if (!target.closest('.header__menu') && !target.closest('.header__burger') &&
+            burger.classList.contains('active')) {
             removeClasses();
             headerMenuActions();
         }
 
-        if (!target.closest('.header__search') && !target.classList.contains('header__search-btn') && search.classList.contains('active')) {
+        if (!target.closest('.header__search') && !target.classList.contains('header__search-btn') &&
+            search.classList.contains('active')) {
             search.classList.remove('active');
             defaultSettings();
         }

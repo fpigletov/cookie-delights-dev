@@ -197,10 +197,10 @@
 
 .choices__item
     color: $gray-color
-    transition: border-color 0.3s ease
+    border-bottom: 2px solid transparent
     &.is-highlighted
-        background-color: $white-color
-        border-bottom: 2px solid $blue-color
+        border-color: $blue-color
+        transition: border-color 0.3s ease
 
 .choices__list--dropdown .choices__item--selectable.is-highlighted::after
     display: none

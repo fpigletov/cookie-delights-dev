@@ -5,7 +5,6 @@ import { productsLogic } from './components/products';
 import { modal } from './components/modules';
 import { gsapAnimation } from './components/animation';
 import { searchLogic } from './components/search';
-import { blogSlider } from './components/sliders';
 import { headerActions } from './components/header';
 
 
@@ -18,10 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     gsapAnimation();
 
     //Search
-    searchLogic();
-    
-    //Blog Slider    
-    blogSlider();
+    searchLogic();    
 
     //Upload from DB
     uploadFromDB();
