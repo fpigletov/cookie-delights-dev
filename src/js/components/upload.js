@@ -65,7 +65,7 @@ export function uploadFromDB() {
             loadingProducts(productsBody, productQuantity);
                 
             if (productQuantity >= dataLength) {
-                console.log(dataLength);
+                
                 showMoreBtn.style.display = 'none';
             } else {
                 showMoreBtn.style.display = 'inline-flex';

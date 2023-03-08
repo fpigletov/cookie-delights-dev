@@ -36,24 +36,34 @@ export function searchLogic() {
             if (text.length > 0) {   
                 resultsBody.innerHTML = '<ul class="search-results__body"></ul>';
                 const results = document.querySelector('.search-results__body');
+                
+                const searchResults = document.querySelectorAll('.item-products__title');
+                let filteredResults = [];
+                searchResults.forEach(item => {
+                    
+                    if (item.textContent.toLowerCase().includes(text.toLowerCase())) {
+                        filteredResults.push(item.textContent);
+                    }
+                });  
 
-                fetch('https://fpigletov-db.herokuapp.com/CookiesDelights/')
-                    .then((response) => {
-                        return response.json();
-                    })
-                    .then((data) => {
-                        const searchResults = data.products;
-                        const filteredResults = searchResults.filter(item => item.title.toLowerCase().includes(text.toLowerCase()));
+                if (filteredResults.length > 0) {
 
-                        filteredResults.forEach(item => {
+                    filteredResults.forEach(item => {
 
-                            results.innerHTML += `
-                                <li class="search-results__item">
-                                    <a href="#" class="search-results__link products-link btn-dark">${item.title}</a>
-                                </li>
-                            `;
-                        });
+                        results.innerHTML += `
+                            <li class="search-results__item">
+                                <a href="#" class="search-results__link products-link btn-dark">${item}</a>
+                            </li>
+                        `;
                     });
+
+                } else {
+
+                    falseResult();
+                    
+                }
+                
+                    
             } else {
                 falseResult();
             }

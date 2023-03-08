@@ -138,7 +138,7 @@ export function productsLogic() {
                             ${subtitle}
                         </div>                            
                     </div>
-                    <div class="cart-content__price">$${price}</div>
+                    <div class="cart-content__price">${price}</div>
                 </div>
                 <div class="cart-content__quantity"><span>1</span></div>
                 <button type="button" class="cart-content__remove icon-trash" aria-label="Remove product"></button>
@@ -149,26 +149,29 @@ export function productsLogic() {
     // Add Product to Cart
     function addToCart(currentBtn, id, productAdd = true) {
     
-        fetch('https://fpigletov-db.herokuapp.com/CookiesDelights/')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const item = data.products[id];
+        
+                const item = document.querySelector(`[data-product-id="${id}"]`); 
+               
+                const productImageJpg = item.querySelector('.item-products__image img').getAttribute('src');
+                const productImageAlt = item.querySelector('.item-products__image img').getAttribute('alt');
+                const productTitle = item.querySelector('.item-products__title').textContent;
+                const productSubtitle = item.querySelector('.item-products__subtitle').textContent;
+                const productPrice = item.querySelector('.item-products__price').textContent;
+                const productPriceAmount = +productPrice.slice(1);
                 
                 const cartProduct = document.querySelector(`[data-cart-id="${id}"]`);             
 
                 if (productAdd) {
                     if (!cartProduct) {
 
-                        cartList.insertAdjacentHTML('beforeend', generateCartItem(item.mainImageJpg, item.mainImageAlt, item.title, item.subtitle, item.price, item.id));
+                        cartList.insertAdjacentHTML('beforeend', generateCartItem(productImageJpg, productImageAlt, productTitle, productSubtitle, productPrice, id));
 
                     } else {
                         const cartProductQuantity = cartProduct.querySelector('.cart-content__quantity span');
                         const cartProductPrice = cartProduct.querySelector('.cart-content__price');
 
                         cartProductQuantity.textContent = ++cartProductQuantity.textContent;
-                        cartProductPrice.textContent = '$' + (+cartProductQuantity.textContent * item.price);
+                        cartProductPrice.textContent = '$' + (+cartProductQuantity.textContent * productPriceAmount);
                     }
 
                     //Unhold Button
@@ -179,7 +182,7 @@ export function productsLogic() {
                     cartProductQuantity.textContent = --cartProductQuantity.textContent;
 
                     //Total Product Price
-                    cartProductPrice.textContent = '$' + (+cartProductQuantity.textContent * +item.price);
+                    cartProductPrice.textContent = '$' + (+cartProductQuantity.textContent * +productPriceAmount);
                     
                     cartQuantity.textContent = --cartQuantity.textContent;
 
@@ -193,7 +196,7 @@ export function productsLogic() {
                 showCart();        
             
                 updateStorage(); 
-            });
+            
     }
 
     //Triggers
@@ -268,7 +271,7 @@ export function productsLogic() {
                                     </div>
                                     <div class="item-checkout__footer">
                                         <div class="item-checkout__price">
-                                            $${price}
+                                            ${price}
                                         </div>
                                         <div class="item-checkout__quantity"><span>${quantity}</span></div>
                                     </div>
@@ -311,19 +314,20 @@ export function productsLogic() {
 
                 cartProduct.forEach(item => {
                     const cartId = item.dataset.cartId;
+                    
+                    const cartProductImgJpg = item.querySelector('.cart-content__image img').getAttribute('src');
+                    const cartProductImgAlt = item.querySelector('.cart-content__image img').getAttribute('alt');
+                    const cartProductTitle = item.querySelector('.cart-content__title').textContent;
+                    const cartProductSubtitle = item.querySelector('.cart-content__subtitle').textContent;
+                    const cartTotalPrice = item.querySelector('.cart-content__price').textContent;   
+                    const cartQuantity = item.querySelector('.cart-content__quantity span').textContent;
+                    const cartProductPrice = '$' + (+cartTotalPrice.slice(1) / cartQuantity);  
 
-                    fetch('https://fpigletov-db.herokuapp.com/CookiesDelights/')
-                        .then((response) => {
-                            return response.json();
-                        })
-                        .then((data) => {
-                            const product = data.products[cartId];
-                            const cartTotalPrice = item.querySelector('.cart-content__price').textContent;   
-                            const cartQuantity = item.querySelector('.cart-content__quantity span').textContent;
-                        
-                            checkoutProductsBody.insertAdjacentHTML('beforeend', generateCheckoutItem(product.mainImageJpg, product.mainImageAlt, product.title, product.subtitle, cartQuantity, product.price, cartTotalPrice, cartId));
-                        });
-                });                
+                    
+                
+                    checkoutProductsBody.insertAdjacentHTML('beforeend', generateCheckoutItem(cartProductImgJpg, cartProductImgAlt, cartProductTitle, cartProductSubtitle, cartQuantity, cartProductPrice, cartTotalPrice, cartId));
+                });
+                                
                 checkoutTotalPrice.textContent = cartTotalPrice.textContent;
             }
 
@@ -341,32 +345,33 @@ export function productsLogic() {
         
         blogModal.innerHTML = '';
 
-        fetch('https://fpigletov-db.herokuapp.com/CookiesDelights/')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const item = data.blog[id];
+        
+        const item = document.querySelector(`[data-blog-id="${id}"]`);         
+        const productImageJpg = item.querySelector('.item-blog__image img').getAttribute('src');
+        const productImageAlt = item.querySelector('.item-blog__image img').getAttribute('alt');
+        const productTitle = item.querySelector('.item-blog__title').textContent;
+        const productDate = item.querySelector('.item-blog__icon.icon-calendar').textContent;       
 
-                blogModal.innerHTML = `
-                    <div class="blog-modal__body">
-                        <div class="blog-modal__image">
-                            <img src="${item.mainImageJpg}" alt="${item.mainImageAlt}">
-                        </div>
-                        <div class="blog-modal__content" data-simplebar>
-                            <h3 class="blog-modal__title modal-title">${item.title}</h3>
-                            <div class="blog-modal__date">${item.date}</div>
-                            <div class="blog-modal__descr"></div>
-                        </div>
-                    </div>
-                `;
+        blogModal.innerHTML = `
+            <div class="blog-modal__body">
+                <div class="blog-modal__image">
+                    <img src="${productImageJpg}" alt="${productImageAlt}">
+                </div>
+                <div class="blog-modal__content" data-simplebar>
+                    <h3 class="blog-modal__title modal-title">${productTitle}</h3>
+                    <div class="blog-modal__date">${productDate}</div>
+                    <div class="blog-modal__descr"></div>
+                </div>
+            </div>
+        `;
 
-                const blogDescr = document.querySelector('.blog-modal__descr');
-                
-                item.descr.forEach(el => {
-                    blogDescr.innerHTML += `<p>${el}</p>`;
-                });
-            });
+        const blogDescr = document.querySelector('.blog-modal__descr');
+        const blogDescrSpans = item.querySelectorAll('.item-blog__descr span');
+        blogDescr.innerHTML = '';
+        blogDescrSpans.forEach(el => {
+            blogDescr.innerHTML += `<p>${el.textContent}</p>`;
+        });
+    
     }
 
     

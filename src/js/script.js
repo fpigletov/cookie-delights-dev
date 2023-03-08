@@ -1,11 +1,12 @@
 'use strict';
 
-import { uploadFromDB } from './components/upload';
+// import { uploadFromDB } from './components/upload';
 import { productsLogic } from './components/products';
 import { modal } from './components/modules';
 import { gsapAnimation } from './components/animation';
 import { searchLogic } from './components/search';
 import { headerActions } from './components/header';
+import { blogSlider } from './components/sliders';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -20,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
     searchLogic();    
 
     //Upload from DB
-    uploadFromDB();
+    // uploadFromDB();
 
     //Products Logic
     productsLogic();
@@ -45,6 +46,9 @@ window.addEventListener('DOMContentLoaded', () => {
         position: 'bottom',
         searchEnabled: false,
     });
+
+    //Blog slider
+    blogSlider();
     
 });
 

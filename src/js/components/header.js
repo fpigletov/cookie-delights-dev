@@ -36,9 +36,21 @@ export function headerActions() {
         dinamicAdaptiv();
     });
 
-    //Preloader
+    //Preloader and Header on scroll
+    function headerOnScroll() {
+        if (window.scrollY > 0) {
+            header.classList.add('active');
+        } else {
+            header.classList.remove('active');
+        }
+    }
+
+    window.addEventListener('scroll', headerOnScroll); 
+
     window.addEventListener('load', () => {       
         dinamicAdaptiv();
+
+        headerOnScroll();
         
         setTimeout(() => {            
             if (!preloader.classList.contains('done')) {
@@ -140,14 +152,7 @@ export function headerActions() {
         searchBtn.focus();
     });
 
-    window.addEventListener('scroll', () => {
-
-        if (window.scrollY > 0) {
-            header.classList.add('active');
-        } else {
-            header.classList.remove('active');
-        }
-    }); 
+    
     
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Escape') {
